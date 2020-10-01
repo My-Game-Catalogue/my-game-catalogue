@@ -42,10 +42,10 @@ class UserControl {
     static googleSign (req, res, next) {
         let email = null
         let name = null
-            const client = new OAuth2Client(process.env.GOOGLE_CID);
+            const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
             client.verifyIdToken({
                 idToken: req.body.id_token,
-                audience: process.env.GOOGLE_CID,
+                audience: process.env.GOOGLE_CLIENT_ID,
             })
             .then(ticket => {
                 let payload = ticket.getPayload()

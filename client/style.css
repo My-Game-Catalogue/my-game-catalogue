@@ -12,3 +12,18 @@
   background-color: rgba(0, 0, 0, 0.1);
   transition: 0.4s;
 }
+
+.g-signin2 {
+  width: 0;
+  display: inline-block;
+}
+
+#facebook {
+  position: absolute;
+  margin-left: 150px;
+}
+
+#login-page, #register-page {
+  margin-top: 150px;
+}
+
