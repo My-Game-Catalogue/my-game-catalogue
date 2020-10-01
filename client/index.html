@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
-  <meta name="google-signin-client_id" content="61418711728-hguhsl3vid8fl8kff5q4bhnv0k2cm3st.apps.googleusercontent.com">
+  <meta name="google-signin-client_id" content="874612571216-r79lnpqmm3ub9n0fcmecss670tou4g5o.apps.googleusercontent.com">
   <title>My Game Catalogue</title>
 </head>
 <body>
@@ -22,8 +22,8 @@
               <label for="exampleDropdownFormPassword1">Password</label>
               <input name="password" type="password" class="form-control" id="login-password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Log in</button>
-            <button onclick="toRegisterPage()" type="button" class="btn btn-primary">Register</button><br><br>
+            <button type="submit" class="btn btn-primary">Log in</button><br><br>
+            <p>Don't have an account? Register: <span onclick="toRegisterPage()">click here</span></p>
             <p>or login with:</p>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
           </form>
@@ -47,7 +47,8 @@
               <label for="exampleDropdownFormPassword1">Password</label>
               <input name="password" type="password" class="form-control" id="register-password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button><br><br>
+            <p>Already have an account? Login: <span onclick="toLoginPage()">click here</span></p>
           </form>
       </div>
     </section>

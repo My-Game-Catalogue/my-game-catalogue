@@ -58,6 +58,12 @@ function login(event) {
     })
 }
 
+function toLoginPage() {
+    checkLogin()
+    $('#register-page').hide()
+    $('#login-page').show()
+}
+
 function toRegisterPage() {
     checkLogin()
     $('#register-page').show()
