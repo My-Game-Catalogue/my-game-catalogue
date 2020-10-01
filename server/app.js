@@ -1,4 +1,4 @@
-require('dotenv').config()
+const env = require('dotenv').config()
 const express = require('express')
 const cors = require("cors")
 const mainRouter = require('./routes/index')
