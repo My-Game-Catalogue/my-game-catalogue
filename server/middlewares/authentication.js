@@ -5,13 +5,12 @@ async function authentication (req,res,next) {
     try {
         let { token } = req.headers;
         let decoded = verify(token)
-        console.log(decoded)
         let user = await User.findOne({
             where: {
                 email: decoded.email
             }
         })
-        if(!user) throw {name: 'AuthenticationFailed'}
+        if(!user) throw { name: 'AuthenticationFailed' }
         req.userData = decoded
         next()
     } catch (error) {

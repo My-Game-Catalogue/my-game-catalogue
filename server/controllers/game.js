@@ -23,7 +23,6 @@ class gameController {
 
   static async findById(req, res, next) {
     const { id } = req.params
-    console.log(id)
     try {
       let data = await axios({
         method: 'get',

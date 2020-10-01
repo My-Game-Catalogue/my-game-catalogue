@@ -1,6 +1,5 @@
 const baselink = 'http://localhost:3000'
 
-
 $(document).ready(() => {
     checkLogin()
 })
@@ -124,6 +123,7 @@ function onSignIn(googleUser) {
         }
     })
     .done(data => {
+      console.log('abc')
         Swal.fire({
             position: 'top-end',
             icon: 'success',
@@ -178,8 +178,6 @@ function fetchGames(event) {
     });
   })
   .fail(err => {
-    // console.log(err)
-    // console.log(err.responseJSON)
     showErrorToastMessage(err.responseJSON.errors.join(', '))
   })
 }
@@ -224,6 +222,8 @@ function showDetailGame(gameId) {
   })
 
 }
+
+// MESSAGE
 
 function showErrorToastMessage(message) {
   Swal.fire({
