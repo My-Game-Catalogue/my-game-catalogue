@@ -11,7 +11,7 @@ async function authentication (req,res,next) {
                 email: decoded.email
             }
         })
-        if(!user) throw {msg: 'Authentication is failed'}
+        if(!user) throw {name: 'AuthenticationFailed'}
         req.userData = decoded
         next()
     } catch (error) {

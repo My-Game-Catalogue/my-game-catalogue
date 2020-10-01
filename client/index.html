@@ -12,7 +12,7 @@
 
   <!-- Login Page -->
   <section id="login-page">
-    <div class="mx-auto" style="width: 300px;">
+    <div class="mx-auto w-25">
       <form class="px-4 py-3" onsubmit="login(event)">
           <h1 style="text-align: center;">Log In</h1><br>
           <div class="form-group">
@@ -24,8 +24,9 @@
             <input name="password" type="password" class="form-control" id="login-password" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-primary">Log in</button><br><br>
-          <p>Don't have an account? Register: <span onclick="toRegisterPage()">click here</span></p>
-          <p>or login with:</p>
+          <p>Don't have an account?  <span class="text text-primary" role="button" onclick="toRegisterPage()">Register</span></p>
+          <hr>
+          <p>Or login with:</p>
           <div class="g-signin2" data-onsuccess="onSignIn"></div>
         </form>
       </div>
@@ -33,7 +34,7 @@
 
   <!-- Register Page -->
   <section id="register-page">
-    <div class="mx-auto" style="width: 300px;">
+    <div class="mx-auto w-25">
       <form class="px-4 py-3" onsubmit="register(event)">
           <h1 style="text-align: center;">Register</h1><br>
           <div class="form-group">
@@ -49,7 +50,7 @@
             <input name="password" type="password" class="form-control" id="register-password" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-primary">Register</button><br><br>
-          <p>Already have an account? Login: <span onclick="toLoginPage()">click here</span></p>
+          <p>Already have an account? <span class="text text-primary" role="button" onclick="toLoginPage()">Login</span></p>
       </form>
     </div>
   </section>
