@@ -1,0 +1,14 @@
+.image-thumbnail {
+  height: 11rem;
+  background-position: center;
+  background-size: cover;
+}
+
+.card-game {
+  width: 18rem
+}
+
+.card-game:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+}
