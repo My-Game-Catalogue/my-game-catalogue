@@ -1,5 +1,7 @@
 const baselink = 'http://localhost:3000'
 
+let newsGlobal = []
+
 $(document).ready(() => {
     checkLogin()
 })
@@ -11,11 +13,14 @@ function checkLogin() {
         $('#login-page').hide()
         $('#register-page').hide()
         $('#game-page').show()
+        $('#news-page').show()
         fetchGames()
+        fetchNews()
     } else {
         $('#login-page').show()
         $('#register-page').hide()
         $('#game-page').hide()
+        $('#news-page').hide()
         $('#login-email').val('')
         $('#login-password').val('')
         $('#register-email').val('')
@@ -222,6 +227,65 @@ function showDetailGame(gameId) {
   })
 
 }
+
+
+//NEWS
+function fetchNews(event) {
+  if (event) event.preventDefault()
+  const newsContainer = $('#news-container')
+  $.ajax({
+    url: `${baselink}/news`,
+    method: "get",
+    headers: {
+      token: localStorage.token 
+    }
+  })
+  .done(data => {
+    newsContainer.empty()
+    console.log(data)
+    newsGlobal = data.news.news
+    data.news.news.forEach((news,index) => {
+      newsContainer.append(`
+        <div onclick="showDetailNews(${index})" class="card m-3 shadow card-game" role="button">
+          <img class="card-img-top image-thumbnail" src="${news.urlToImage}" alt="game thumbnail">
+          <div class="card-body">
+            <h5 class="card-title">${news.title}</h5>
+            <p class="card-text">Author: ${news.author}</p>
+          </div>
+        </div>
+      `)
+    });
+  })
+  .fail(err => {
+    showErrorToastMessage(err.responseJSON.errors.join(', '))
+  })
+}
+
+
+function showDetailNews(idx) {
+  let news = newsGlobal[idx]
+  // console.log(description);
+  Swal.fire({
+    imageUrl: `${news.urlToImage}`,
+    imageHeight: 300,
+    imageAlt: 'A tall image',
+    showCancelButton: true,
+    title: `${news.title}`,
+    html: `<p>${news.description}</p>`,
+  })
+  .then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      Swal.fire('Saved!', '', 'success')
+    } else if (result.isDenied) {
+      Swal.fire('Changes are not saved', '', 'info')
+    }
+  })
+
+
+
+}
+
 
 // MESSAGE
 
