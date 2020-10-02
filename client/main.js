@@ -159,7 +159,7 @@ function fetchGames(event) {
   if (event) event.preventDefault()
   const search = $('#game-search').val()
   const gameContainer = $('#game-container')
-  console.log(search)
+
   $.ajax({
     url: `${baselink}/games?search=${search || ""}`,
     method: "get",
@@ -202,21 +202,8 @@ function showDetailGame(gameId) {
       imageUrl: `${game.image}`,
       imageHeight: 300,
       imageAlt: 'A tall image',
-      confirmButtonText: `Favorite`,
-      denyButtonText: `Unfavorite`,
-      showDenyButton: true,
-      showCancelButton: true,
       title: `${game.name}`,
       html: `<p>${game.description}</p>`,
-      
-      
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
-      } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
-      }
     })
 
   })
@@ -242,9 +229,8 @@ function fetchNews(event) {
   })
   .done(data => {
     newsContainer.empty()
-    console.log(data)
-    newsGlobal = data.news.news
-    data.news.news.forEach((news,index) => {
+    newsGlobal = data.news
+    data.news.forEach((news,index) => {
       newsContainer.append(`
         <div onclick="showDetailNews(${index})" class="card m-3 shadow card-game" role="button">
           <img class="card-img-top image-thumbnail" src="${news.urlToImage}" alt="game thumbnail">
@@ -261,31 +247,16 @@ function fetchNews(event) {
   })
 }
 
-
 function showDetailNews(idx) {
   let news = newsGlobal[idx]
-  // console.log(description);
   Swal.fire({
     imageUrl: `${news.urlToImage}`,
     imageHeight: 300,
     imageAlt: 'A tall image',
-    showCancelButton: true,
     title: `${news.title}`,
     html: `<p>${news.description}</p>`,
   })
-  .then((result) => {
-    /* Read more about isConfirmed, isDenied below */
-    if (result.isConfirmed) {
-      Swal.fire('Saved!', '', 'success')
-    } else if (result.isDenied) {
-      Swal.fire('Changes are not saved', '', 'info')
-    }
-  })
-
-
-
 }
-
 
 // MESSAGE
 

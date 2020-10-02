@@ -229,3 +229,68 @@ _Response (500 - Internal Server Error)_
 ---
 
 
+## News endpoints
+
+### GET /news
+
+> Get all news
+
+_Request Header_
+```
+{
+  "token": "<your access token>"
+}
+```
+
+_Request Body_
+```
+not needed
+```
+
+_Response (200 - OK)_
+```
+{
+  "games": [
+    {
+      "id": <game id>,
+      "name": "<game name>",
+      "image": "<game image>",
+      "released": "<game released>"
+    },
+    ...
+  ]
+}
+
+{
+  "news": [
+    {
+        "title": "<news title>",
+        "urlToImage": "<news image>",
+        "description": "<news description>",
+        "author": "<news author>"
+    },
+    ...
+  ]
+```
+
+_Response (401 - Unauthorized)_
+```
+{
+  "errors": [
+    "failed to authenticate"
+  ]
+}
+```
+
+_Response (500 - Internal Server Error)_
+```
+{
+  "errors": [
+    "internal server error"
+  ]
+}
+```
+---
+
+
+
