@@ -12,3 +12,28 @@
   background-color: rgba(0, 0, 0, 0.1);
   transition: 0.4s;
 }
+
+body {
+  background-image: url(https://imgix.bustle.com/uploads/shutterstock/2020/4/25/0b3e1720-2978-4283-a32b-34d9612f22ff-shutterstock-1093602611.jpg?w=2000&h=1090&auto=format%2Ccompress&cs=srgb&q=70&fit=crop&crop=faces);
+}
+
+.mx-auto.w-25 {
+  margin-top: 150px;
+}
+
+.px-4.py-3 {
+  background-color:whitesmoke;
+}
+
+.d-flex.flex-wrap.justify-content-between.p-4 {
+  background-color: rgb(245, 245, 245)
+}
+
+.d-flex.flex-wrap.justify-content-center.p-4 {
+  margin-top: 100px;
+ background-color:whitesmoke;
+}
+
+#news-container {
+  background-image: url(https://images.ctfassets.net/rporu91m20dc/2onRvj4FS8WtO7Pguu8IZ4/7109871b61a866050f360bc668bfee2c/news-hero1920.png);
+}
