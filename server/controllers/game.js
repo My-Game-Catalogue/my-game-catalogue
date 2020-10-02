@@ -8,7 +8,7 @@ class gameController {
     try {
       let data = await axios({
         method: 'get',
-        url: `https://api.rawg.io/api/games?page=1&page_size=20&search=${search || ""}`,
+        url: `https://api.rawg.io/api/games?page=1&page_size=8&search=${search || ""}`,
       });
       let games = data.data.results 
       games = games.map(game => {
