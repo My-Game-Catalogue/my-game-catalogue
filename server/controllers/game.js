@@ -39,6 +39,10 @@ class gameController {
         } 
       })
     } catch (err) {
+      if (err.response.status === 404) {
+        err = { message: 'error not found', statusCode: 404 }
+      }
+      err = { message: 'error not found', statusCode: 404 }
       next(err)
     }
   }

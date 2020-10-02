@@ -16,29 +16,44 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.init({
     name: {
+      allowNull: false,
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
+          msg: "name is required"
+        },
+        notNull: {
           msg: "name is required"
         }
       }
     },
     email: {
+      allowNull: false,
       type: DataTypes.STRING,
-      unique: true,
       validate: {
         isEmail: {
           msg: "not an email format"
         },
         notEmpty: {
           msg: "email is required"
+        },
+        notNull: {
+          msg: "email is required"
         }
+      },
+      unique: {
+        args: true,
+        msg: 'email address is already in use'
       },
     },
     password: {
+      allowNull: false,
       type: DataTypes.STRING,
       validate: {
         notEmpty: {
+          msg: "password is required"
+        },
+        notNull: {
           msg: "password is required"
         }
       }
@@ -47,8 +62,10 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
   });
+
   User.beforeCreate((instance,opt) => {
     instance.password = hashing(instance.password)
   })
+
   return User;
 };
