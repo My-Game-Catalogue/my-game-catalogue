@@ -8,7 +8,7 @@ class gameController {
     try {
       let data = await axios({
         method: 'get',
-        url: `https://api.rawg.io/api/games?page=1&page_size=20&search=${search || ""}`,
+        url: `https://api.rawg.io/api/games?page=1&page_size=8&search=${search || ""}`,
       });
       let games = data.data.results 
       games = games.map(game => {
@@ -39,6 +39,10 @@ class gameController {
         } 
       })
     } catch (err) {
+      if (err.response.status === 404) {
+        err = { message: 'error not found', statusCode: 404 }
+      }
+      err = { message: 'error not found', statusCode: 404 }
       next(err)
     }
   }

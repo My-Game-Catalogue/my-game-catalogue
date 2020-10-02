@@ -7,7 +7,7 @@ const { sendEmail } = require('../helpers/sendEmail')
 class UserControl {
     static register (req, res, next) {
         let { name, email, password } = req.body
-        User.create({ name, email, password })
+        User.create({ name, email, password }, { individualHooks: true })
             .then(data => {
                 sendEmail(email, name)
                 res.status(201).json({email: data.email, msg:"successfully register!"})
