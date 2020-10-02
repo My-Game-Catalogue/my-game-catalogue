@@ -26,8 +26,11 @@ const sendEmail =  async (email, name) => {
         },
         "content": [
           {
-            "type": "text/plain",
-            "value": `Hello ${name}, Welcome to My Game Catalogue`
+            "type": "text/html",
+            "value": `
+              <h2>Hello ${name}, Welcome to My Game Catalogue</h2>
+              <img src="https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">
+            `
           }
         ]
       }

@@ -251,7 +251,7 @@ function showDetailNews(idx) {
     imageHeight: 300,
     imageAlt: 'A tall image',
     title: `${news.title}`,
-    html: `<p>${news.description}</p>`,
+    html: `<p>${news.description}</p> <a href="${news.url}" target="_blank">Read more</a>`,
   })
 }
 
