@@ -1,10 +1,8 @@
 const router = require('express').Router()
-const UserControl = require('../controllers/user')
+const UserController = require('../controllers/user')
 
-router.post('/register', UserControl.register)
-
-router.post('/login', UserControl.login)
-
-router.post('/googleSign', UserControl.googleSign)
+router.post('/register', UserController.register)
+router.post('/login', UserController.login)
+router.post('/googleSign', UserController.googleSign)
 
 module.exports = router
